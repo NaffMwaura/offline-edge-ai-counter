@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EggCounter AI | Offline-First</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/onnxruntime-web/dist/ort.min.js"></script>
+</head>
+<body class="bg-slate-50 text-slate-900 font-sans">
+
+    <div class="max-w-md mx-auto p-6 space-y-6">
+        <header class="text-center">
+            <h1 class="text-2xl font-bold text-blue-600">EggCount AI</h1>
+            <p class="text-xs text-slate-500 uppercase tracking-widest">In-Browser Edge Computing</p>
+        </header>
+
+        <div id="dropzone" class="border-2 border-dashed border-slate-300 rounded-xl p-8 text-center hover:border-blue-400 transition cursor-pointer bg-white">
+            <input type="file" id="fileInput" class="hidden" accept="image/*">
+            <div class="space-y-2">
+                <div class="text-slate-400">📷 Click to upload image</div>
+                <div class="text-[10px] text-slate-400">Processing happens locally on your device</div>
+            </div>
+        </div>
+
+        <div id="resultCard" class="hidden bg-white p-4 rounded-xl shadow-sm border border-slate-200">
+            <canvas id="canvas" class="w-full rounded-lg mb-4"></canvas>
+            <div class="flex justify-between items-center">
+                <span class="font-semibold text-slate-600">Total Detected:</span>
+                <span id="eggCount" class="text-3xl font-black text-blue-600">0</span>
+            </div>
+            <div id="latency" class="text-[10px] text-green-600 mt-2 font-mono">Inference: 0ms</div>
+        </div>
+    </div>
+
+    <script src="js/app.js"></script>
+</body>
+</html>
